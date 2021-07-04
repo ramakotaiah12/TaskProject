@@ -1,0 +1,29 @@
+﻿<Properties StartupConfiguration="{22A7267F-6C49-4832-B26B-66AA3059B895}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="TaskProject/Services/SaleRepository.cs">
+    <Files>
+      <File FileName="TaskProject/Controllers/SalesController.cs" Line="39" Column="14" />
+      <File FileName="TaskProject/Services/SaleRepository.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="TaskProject" expanded="True">
+            <Node name="TaskProject" expanded="True">
+              <Node name="Controllers" expanded="True" />
+              <Node name="Services" expanded="True">
+                <Node name="SaleRepository.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.TaskProject PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
