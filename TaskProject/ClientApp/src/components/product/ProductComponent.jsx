@@ -23,27 +23,37 @@ export class ProductComponent extends Component {
 		this.getProductsHandler();
 	}
 	getProductsHandler = async () => {
-		const res = await axios.get("https://localhost:5001/api/products");
+		const res = await axios.get(
+			"https://onboarding-task.azurewebsites.net/api/products"
+		);
 		this.setState({ products: res.data, open: false });
 	};
 	editProductHandler = async (id, name, price) => {
 		const productId = id === undefined ? this.state.customer.customerId : id;
-		await axios.put(`https://localhost:5001/api/products/${productId}`, {
-			productId: productId,
-			productName: name === "" ? this.state.product.name : name,
-			productPrice: price === "" ? this.state.product.price : price,
-		});
+		await axios.put(
+			`https://onboarding-task.azurewebsites.net/api/products/${productId}`,
+			{
+				productId: productId,
+				productName: name === "" ? this.state.product.name : name,
+				productPrice: price === "" ? this.state.product.price : price,
+			}
+		);
 		this.getProductsHandler();
 	};
 	deleteProductHandler = async (id) => {
-		await axios.delete(`https://localhost:5001/api/products/${id}`);
+		await axios.delete(
+			`https://onboarding-task.azurewebsites.net/api/products/${id}`
+		);
 		this.getProductsHandler();
 	};
 	createProductHandler = async (name, price) => {
-		await axios.post(`https://localhost:5001/api/products/`, {
-			productName: name,
-			productPrice: price,
-		});
+		await axios.post(
+			`https://onboarding-task.azurewebsites.net/api/products/`,
+			{
+				productName: name,
+				productPrice: price,
+			}
+		);
 		this.getProductsHandler();
 	};
 	toggleModalChange = (value, component, product) => {

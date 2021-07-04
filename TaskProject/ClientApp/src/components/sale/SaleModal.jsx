@@ -51,29 +51,33 @@ export class CreateSale extends Component {
 	};
 
 	findDefaultCustomer = () => {
-		const something = this.state.customerOptions.find(
+		const defaultCustomerName = this.state.customerOptions.find(
 			(x) => x.text === this.props.sale.customer.customerName
 		);
-		return something.value;
+		return defaultCustomerName.value;
 	};
 	findDefaultProduct = () => {
-		const something = this.state.productOptions.find(
+		const defaultProductName = this.state.productOptions.find(
 			(x) => x.text === this.props.sale.product.productName
 		);
-		return something.value;
+		return defaultProductName.value;
 	};
 	findDefaultStore = () => {
-		const something = this.state.storeOptions.find(
+		const defaultStoreName = this.state.storeOptions.find(
 			(x) => x.text === this.props.sale.store.storeName
 		);
-		return something.value;
+		return defaultStoreName.value;
 	};
 	async componentDidMount() {
 		const customersRes = await axios.get(
-			"https://localhost:5001/api/customers"
+			"https://onboarding-task.azurewebsites.net/api/customers"
 		);
-		const productsRes = await axios.get("https://localhost:5001/api/products");
-		const storesRes = await axios.get("https://localhost:5001/api/stores");
+		const productsRes = await axios.get(
+			"https://onboarding-task.azurewebsites.net/api/products"
+		);
+		const storesRes = await axios.get(
+			"https://onboarding-task.azurewebsites.net/api/stores"
+		);
 		this.setState({
 			customers: customersRes.data,
 			products: productsRes.data,

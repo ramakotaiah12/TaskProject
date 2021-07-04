@@ -23,24 +23,31 @@ export class StoreComponent extends Component {
 		this.getStoresHandler();
 	}
 	getStoresHandler = async () => {
-		const res = await axios.get("https://localhost:5001/api/stores");
+		const res = await axios.get(
+			"https://onboarding-task.azurewebsites.net/api/stores"
+		);
 		this.setState({ stores: res.data, open: false });
 	};
 	editStoreHandler = async (id, name, address) => {
 		const storeId = id === undefined ? this.state.store.storeId : id;
-		await axios.put(`https://localhost:5001/api/stores/${storeId}`, {
-			storeId: storeId,
-			storeName: name === "" ? this.state.store.name : name,
-			storeAddress: address === "" ? this.state.store.address : address,
-		});
+		await axios.put(
+			`https://onboarding-task.azurewebsites.net/api/stores/${storeId}`,
+			{
+				storeId: storeId,
+				storeName: name === "" ? this.state.store.name : name,
+				storeAddress: address === "" ? this.state.store.address : address,
+			}
+		);
 		this.getStoresHandler();
 	};
 	deleteStoreHandler = async (id) => {
-		await axios.delete(`https://localhost:5001/api/stores/${id}`);
+		await axios.delete(
+			`https://onboarding-task.azurewebsites.net/api/stores/${id}`
+		);
 		this.getStoresHandler();
 	};
 	createStoreHandler = async (name, address) => {
-		await axios.post(`https://localhost:5001/api/stores/`, {
+		await axios.post(`https://onboarding-task.azurewebsites.net/api/stores/`, {
 			storeName: name,
 			storeAddress: address,
 		});

@@ -24,11 +24,13 @@ export class SaleComponent extends Component {
 		this.getSalesHandler();
 	}
 	getSalesHandler = async () => {
-		const res = await axios.get("https://localhost:5001/api/sales");
+		const res = await axios.get(
+			"https://onboarding-task.azurewebsites.net/api/sales"
+		);
 		this.setState({ sales: res.data, open: false });
 	};
 	createSaleHandler = async (customerId, productId, storeId, dateSold) => {
-		await axios.post("https://localhost:5001/api/sales", {
+		await axios.post("https://onboarding-task.azurewebsites.net/api/sales", {
 			productId: productId,
 			customerId: customerId,
 			storeId: storeId,
@@ -43,22 +45,27 @@ export class SaleComponent extends Component {
 				? moment(this.state.sale.dateSold)._d
 				: moment(dateSold, "MM/DD/YYYY").add(1, "day")._d
 		);
-		await axios.put(`https://localhost:5001/api/sales/${saleId}`, {
-			saleId: saleId,
-			productId:
-				productId === "" ? this.state.sale.product.productId : productId,
-			customerId:
-				customerId === "" ? this.state.sale.customer.customerId : customerId,
-			storeId: storeId === "" ? this.state.sale.store.storeId : storeId,
-			dateSold:
-				dateSold === ""
-					? moment(this.state.sale.dateSold)._d
-					: moment(dateSold, "MM/DD/YYYY").add(1, "day")._d,
-		});
+		await axios.put(
+			`https://onboarding-task.azurewebsites.net/api/sales/${saleId}`,
+			{
+				saleId: saleId,
+				productId:
+					productId === "" ? this.state.sale.product.productId : productId,
+				customerId:
+					customerId === "" ? this.state.sale.customer.customerId : customerId,
+				storeId: storeId === "" ? this.state.sale.store.storeId : storeId,
+				dateSold:
+					dateSold === ""
+						? moment(this.state.sale.dateSold)._d
+						: moment(dateSold, "MM/DD/YYYY").add(1, "day")._d,
+			}
+		);
 		this.getSalesHandler();
 	};
 	deleteSaleHandler = async (id) => {
-		await axios.delete(`https://localhost:5001/api/sales/${id}`);
+		await axios.delete(
+			`https://onboarding-task.azurewebsites.net/api/sales/${id}`
+		);
 		this.getSalesHandler();
 	};
 	toggleModalChange = async (value, component, sale) => {
@@ -135,14 +142,13 @@ export class SaleComponent extends Component {
 		}
 	};
 	render() {
-		const { page, itemsPerPage, sales } = this.state;
+		const { page, itemsPerPage, sales, open } = this.state;
 		const totalPages = this.state.sales.length / itemsPerPage;
 		const items = this.state.sales.slice(
 			(page - 1) * itemsPerPage,
 			(page - 1) * itemsPerPage + itemsPerPage
 		);
 
-		const { open } = this.state;
 		const options = [
 			{
 				key: 1,

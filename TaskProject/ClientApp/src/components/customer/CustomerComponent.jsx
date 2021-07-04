@@ -23,7 +23,9 @@ class CustomerComponent extends Component {
 		this.getCustomersHandlers();
 	}
 	getCustomersHandlers = async () => {
-		const res = await axios.get("https://localhost:5001/api/customers");
+		const res = await axios.get(
+			"https://onboarding-task.azurewebsites.net/api/customers"
+		);
 		this.setState({ customers: res.data, open: false });
 	};
 	toggleModalChange = async (value, component, customer) => {
@@ -34,23 +36,31 @@ class CustomerComponent extends Component {
 		});
 	};
 	deleteCustomerHandler = async (id) => {
-		await axios.delete(`https://localhost:5001/api/customers/${id}`);
+		await axios.delete(
+			`https://onboarding-task.azurewebsites.net/api/customers/${id}`
+		);
 		this.getCustomersHandlers();
 	};
 	editCustomerHandler = async (id, name, address) => {
 		const customerId = id === undefined ? this.state.customer.customerId : id;
-		await axios.put(`https://localhost:5001/api/customers/${customerId}`, {
-			customerId: customerId,
-			customerName: name === "" ? this.state.customer.name : name,
-			customerAddress: address === "" ? this.state.customer.address : address,
-		});
+		await axios.put(
+			`https://onboarding-task.azurewebsites.net/api/customers/${customerId}`,
+			{
+				customerId: customerId,
+				customerName: name === "" ? this.state.customer.name : name,
+				customerAddress: address === "" ? this.state.customer.address : address,
+			}
+		);
 		this.getCustomersHandlers();
 	};
 	createCustomerHandler = async (name, address) => {
-		await axios.post(`https://localhost:5001/api/customers/`, {
-			customerName: name,
-			customerAddress: address,
-		});
+		await axios.post(
+			`https://onboarding-task.azurewebsites.net/api/customers/`,
+			{
+				customerName: name,
+				customerAddress: address,
+			}
+		);
 		this.getCustomersHandlers();
 	};
 	handleAscendingOrder = (customers, value) => {

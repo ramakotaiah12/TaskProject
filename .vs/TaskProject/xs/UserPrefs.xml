@@ -1,18 +1,19 @@
 ﻿<Properties StartupConfiguration="{22A7267F-6C49-4832-B26B-66AA3059B895}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="TaskProject/Services/SaleRepository.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="TaskProject/Controllers/CustomersController.cs">
     <Files>
       <File FileName="TaskProject/Controllers/SalesController.cs" Line="39" Column="14" />
-      <File FileName="TaskProject/Services/SaleRepository.cs" Line="1" Column="1" />
+      <File FileName="TaskProject/Services/SaleRepository.cs" />
+      <File FileName="TaskProject/.gitignore" />
+      <File FileName="TaskProject/appsettings.json" />
+      <File FileName="TaskProject/Controllers/CustomersController.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="TaskProject" expanded="True">
-            <Node name="TaskProject" expanded="True">
+            <Node name="TaskProject" expanded="True" selected="True">
+              <Node name="ClientApp" expanded="True" />
               <Node name="Controllers" expanded="True" />
-              <Node name="Services" expanded="True">
-                <Node name="SaleRepository.cs" selected="True" />
-              </Node>
             </Node>
           </Node>
         </State>
